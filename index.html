@@ -1,1 +1,44 @@
-Add digital signage slideshow
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aptiv Digital Signage</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+<img id="slide">
+
+<script>
+const images = [
+    "MTR_Quick_User_Guide_1920x1080%20%281%29.png",
+    "Designer%20-%202026-11-16T123313.229.png"
+];
+
+let current = 0;
+const slide = document.getElementById("slide");
+
+function nextSlide() {
+    slide.src = images[current];
+    current = (current + 1) % images.length;
+}
+
+nextSlide();
+setInterval(nextSlide, 15000);
+</script>
+
+</body>
+</html>
